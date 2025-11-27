@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/darkfifty">
+
+    <!-- Верхняя панель с заголовком -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient_dark_blue_overlay"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Заголовок -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ТОП 20 — Историй Месяца"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <!-- Опционально: иконка настроек или поиска (справа) -->
+        <ImageView
+            android:id="@+id/nav_search"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_loupe"
+            app:tint="#FFFFFF" />
+
+    </LinearLayout>
+
+    <!-- Список историй -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTopStories"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
+
+    <!-- Нижняя навигация -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient_dark_blue_overlay"
+        android:padding="8dp"
+        android:gravity="center">
+
+        <!-- Кнопка "Выход" -->
+        <LinearLayout
+            android:id="@+id/nav_exit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="43dp"
+                android:layout_height="38dp"
+                android:src="@drawable/ic_exit"
+                app:tint="#FFFFFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Выход"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Кнопка "Истории" -->
+        <LinearLayout
+            android:id="@+id/nav_stories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="38dp"
+                android:src="@drawable/ic_stories"
+                app:tint="#FFFFFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Истории"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Кнопка "Анкета" -->
+        <LinearLayout
+            android:id="@+id/nav_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="38dp"
+                android:src="@drawable/ic_profile"
+                app:tint="#FFFFFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Анкета"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Кнопка "Настройки" -->
+        <LinearLayout
+            android:id="@+id/nav_app_settings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="38dp"
+                android:src="@drawable/ic_settings"
+                app:tint="#FFFFFF" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Настройки"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <!-- Основная тема -->
+    <style name="Theme.My_story_rc" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <!-- Тема для Splash -->
+    <style name="Theme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

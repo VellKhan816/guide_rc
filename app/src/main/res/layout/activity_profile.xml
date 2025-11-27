@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/darkfifty"> <!-- Установим фон на весь LinearLayout -->
+
+    <!-- 🔝 Верхняя навигационная панель -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_gradient_dark_blue_overlay"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <!-- Кнопка "Назад" -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_return"
+            app:tint="#FFFFFF"
+            android:contentDescription="Назад" />
+
+        <!-- Заголовок "Профиль" -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:text="Профиль"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <!-- Основной контент с прокруткой -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Скруглённая аватарка (реализована через ImageView с фоном-кругом) -->
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="113dp"
+                android:layout_height="124dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/homy_av"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homy_av" />
+
+            <TextView
+                android:id="@+id/tvNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnEditNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Изменить никнейм"
+                android:layout_marginTop="8dp"
+                android:textSize="12sp" />
+
+            <!-- Статистика -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/stat_green_bg"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/tvCompleted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View android:layout_width="16dp" android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/stat_orange_bg"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/tvStarted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- UID -->
+            <TextView
+                android:id="@+id/tvUID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Игровой UID: ???"
+                android:textSize="14sp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvUIDHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Как найти UID?"
+                android:textColor="#1E88E5"
+                android:layout_marginTop="4dp" />
+
+            <!-- Причина -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tvReason"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Я играю в Клуб Романтики, потому что..."
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white" />
+                <ImageView
+                    android:id="@+id/ivEditReason"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="Редактировать" />
+            </LinearLayout>
+
+            <!-- Последние истории -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Недавние истории"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@android:color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecentStories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+        <!-- Конец основного контента -->
+
+    </ScrollView>
+
+</LinearLayout>
