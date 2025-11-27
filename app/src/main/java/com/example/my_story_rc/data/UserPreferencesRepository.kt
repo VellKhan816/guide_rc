@@ -50,12 +50,10 @@ class UserPreferencesRepository(context: Context) {
     val selectedAvatarId: Flow<Int> = dataStore.data
         .map { preferences -> preferences[PreferencesKeys.AVATAR] ?: 0 }
 
-    // --- НОВОЕ: Статистика (предполагаем, что это количество начатых/завершённых историй) ---
-    val statsStarted: Flow<Int> = dataStore.data
-        .map { preferences -> preferences[PreferencesKeys.STATS_STARTED] ?: 0 }
-
-    val statsCompleted: Flow<Int> = dataStore.data
-        .map { preferences -> preferences[PreferencesKeys.STATS_COMPLETED] ?: 0 }
+    // --- СТАТИСТИКА: теперь вычисляется на основе прогресса ---
+    // Вместо хранения отдельного счётчика, мы можем вычислить его на основе getStartedStories/getCompletedStories
+    val statsStarted: Flow<Int> = getStartedStories().map { it.size }
+    val statsCompleted: Flow<Int> = getCompletedStories().map { it.size }
 
 
     /**
@@ -66,7 +64,7 @@ class UserPreferencesRepository(context: Context) {
         .map { preferences ->
             val nick = preferences[PreferencesKeys.NICKNAME].orEmpty()
             val dobMillis = preferences[PreferencesKeys.DOB_MILLIS]
-            val pass = preferences[PreferencesKeys.PASSWORD].orEmpty() // НОВОЕ: проверяем пароль
+            val pass = preferences[PreferencesKeys.PASSWORD].orEmpty() // Проверяем пароль
             nick.isNotEmpty() && dobMillis != null && pass.isNotEmpty() // Добавлено условие на пароль
         }
 
@@ -78,33 +76,6 @@ class UserPreferencesRepository(context: Context) {
             nick.isNotEmpty() && pass.isNotEmpty() // Проверяем, что и ник, и пароль установлены
         }
 
-
-    // --- НОВОЕ: Flow для прогресса по историям ---
-    val storyProgress: Flow<Map<Int, StoryProgress>> = dataStore.data
-        .map { preferences ->
-            val progressMapJson = preferences[PreferencesKeys.STORY_PROGRESS_MAP_JSON] ?: "{}"
-            // Здесь нужно реализовать десериализацию JSON в Map<Int, StoryProgress>
-            // Используем простую реализацию через DataStore Preferences для ключей вида "story_progress_$id"
-            val map = mutableMapOf<Int, StoryProgress>()
-            preferences.asMap().forEach { (key, value) ->
-                if (key.name.startsWith("story_progress_") && value is String) {
-                    val idStr = key.name.substringAfter("story_progress_")
-                    val id = idStr.toIntOrNull()
-                    if (id != null) {
-                        // Предположим, значение - это JSON для StoryProgress
-                        // Для простоты, будем хранить отдельные ключи для lastReadChapter и isCompleted
-                        // или использовать один JSON-ключ, как показано в комментарии ниже.
-                        // Реализуем хранение в одном JSON-ключе для прогресса всех историй.
-                        // Этот подход требует десериализации при каждом изменении.
-                        // Альтернатива - использовать Room.
-                        // Для текущего решения с DataStore будем использовать отдельные ключи.
-                    }
-                }
-            }
-            // Более реалистичный подход с DataStore - использовать отдельные ключи для каждого storyId
-            // См. методы getStoryProgress и updateStoryProgress ниже.
-            emptyMap() // Возвращаем пустую карту, так как полный список получаем через другие методы
-        }
 
     // --- Существующие методы сохранения ---
     suspend fun saveProfileData(nickname: String, dateOfBirth: Date, password: String = "") { // Правильная сигнатура
@@ -164,6 +135,8 @@ class UserPreferencesRepository(context: Context) {
 
     // --- НОВОЕ: Методы для получения списков начатых/завершённых историй ---
     // Эти методы фильтруют StoryRepository.allStories на основе прогресса, хранящегося в DataStore.
+    // История считается начатой, если lastReadChapter > 0.
+    // История считается завершённой, если isCompleted = true.
     fun getStartedStories(): Flow<List<Story>> {
         return dataStore.data.map { preferences ->
             StoryRepository.allStories.filter { story ->
@@ -201,11 +174,7 @@ class UserPreferencesRepository(context: Context) {
         val DARK_MODE = booleanPreferencesKey("dark_mode")
         val NOTIFICATIONS = booleanPreferencesKey("notifications")
 
-        // --- НОВОЕ: Ключи для статистики ---
-        val STATS_STARTED = intPreferencesKey("stats_started")
-        val STATS_COMPLETED = intPreferencesKey("stats_completed")
-
-        // --- НОВОЕ: Ключи для прогресса по историям ---
+        // --- Ключи для прогресса по историям ---
         val STORY_PROGRESS_MAP_JSON = stringPreferencesKey("story_progress_map_json") // Не используем напрямую
 
         // Генерация ключей для конкретной истории

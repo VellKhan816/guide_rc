@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View // Импортируем View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.my_story_rc.data.UserPreferencesRepository
+import com.example.my_story_rc.domain.StoryRepository
 import com.example.my_story_rc.ui.AvatarPreviewAdapter
 import com.example.my_story_rc.ui.RecentStoriesAdapter // Импортируем адаптер
 import kotlinx.coroutines.flow.first
@@ -39,13 +41,14 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun setupUI() {
         // --- НОВОЕ: Обработка навигации "назад" ---
-        findViewById<View>(R.id.backButton).setOnClickListener {
+        findViewById<ImageView>(R.id.backButton).setOnClickListener {
             finish() // Закрывает текущую активность и возвращает на предыдущую
         }
         // --- КОНЕЦ НОВОГО ---
 
-        // Обработка редактирования никнейма
-        findViewById<Button>(R.id.btnEditNickname).setOnClickListener {
+
+        // --- ИСПРАВЛЕНО: findViewById<ImageView> для ivEditNickname ---
+        findViewById<ImageView>(R.id.ivEditNickname).setOnClickListener { // <-- Изменено с Button на ImageView
             val current = findViewById<TextView>(R.id.tvNickname).text.toString()
             val editText = androidx.appcompat.widget.AppCompatEditText(this).apply {
                 setText(current)
@@ -66,6 +69,8 @@ class ProfileActivity : AppCompatActivity() {
                 .setNegativeButton("Отмена", null)
                 .show()
         }
+        // --- КОНЕЦ ИСПРАВЛЕНИЯ ---
+
 
         // Обработка редактирования "причины"
         findViewById<ImageView>(R.id.ivEditReason).setOnClickListener {
@@ -143,7 +148,7 @@ class ProfileActivity : AppCompatActivity() {
 
         // Создаём диалог
         val dialog = Dialog(this)
-        dialog.setContentView(R.layout.dialog_avatar_selection) // Создайте этот макет
+        dialog.setContentView(R.layout.dialog_avatar_selection) // Используем созданный макет
         dialog.window?.setLayout(
             (resources.displayMetrics.widthPixels * 0.9).toInt(),
             (resources.displayMetrics.heightPixels * 0.7).toInt()
@@ -154,11 +159,9 @@ class ProfileActivity : AppCompatActivity() {
         val btnSave = dialog.findViewById<Button>(R.id.btnSaveAvatar)
 
         // --- ИСПРАВЛЕНО: Получаем текущий выбранный аватар через lifecycleScope.launch ---
-        // Запускаем корутину для получения значения из Flow
         lifecycleScope.launch {
-            val currentAvatarResId = repo.selectedAvatarId.first() // Получаем текущее значение
+            val currentAvatarResId = repo.selectedAvatarId.first() // Получаем текущее значение из Flow
 
-            // Создаём адаптер ВНУТРИ корутины, чтобы использовать полученное значение
             val adapter = AvatarPreviewAdapter(avatars, onAvatarSelected = { selectedResId ->
                 // Обновляем аватар в ProfileActivity временно
                 runOnUiThread { // Обновляем UI в основном потоке
@@ -167,7 +170,7 @@ class ProfileActivity : AppCompatActivity() {
             }, initiallySelectedAvatarResId = currentAvatarResId)
 
             // Настраиваем RecyclerView
-            recyclerViewAvatars.layoutManager = GridLayoutManager(this@showAvatarSelectionDialog, 4) // 4 колонки
+            recyclerViewAvatars.layoutManager = GridLayoutManager(this@ProfileActivity, 4) // 4 колонки
             recyclerViewAvatars.adapter = adapter
 
             // Обработка кнопки "Сохранить"
@@ -175,17 +178,11 @@ class ProfileActivity : AppCompatActivity() {
                 val finalSelectedResId = adapter.getSelectedAvatarResId()
                 lifecycleScope.launch {
                     repo.saveSelectedAvatar(finalSelectedResId)
-                    Toast.makeText(this@showAvatarSelectionDialog, "Аватар изменён", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ProfileActivity, "Аватар изменён", Toast.LENGTH_SHORT).show()
                 }
                 dialog.dismiss()
             }
         }
-        // Диалог должен быть показан до того, как RecyclerView будет настроен,
-        // иначе пользователь может увидеть пустой список.
-        // Лучше запустить корутину и показать диалог, а настройку адаптера выполнить асинхронно.
-        // Но для простоты, покажем диалог сразу, а корутина настроит его асинхронно.
-        // Альтернатива: Использовать StateFlow/LiveData или передавать начальное значение в адаптер через конструктор.
-        // Пока оставим как есть, но помним про потенциальную задержку при открытии.
         dialog.show()
     }
     // --- КОНЕЦ НОВОГО ---
@@ -210,7 +207,7 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
 
-        // --- ОБНОВЛЕНО: Наблюдение за начатыми и завершёнными историями ---
+        // --- ОБНОВЛЕНО: Наблюдение за начатыми, завершёнными и непрочтёнными историями ---
         lifecycleScope.launch {
             repo.getStartedStories().collect { startedStories ->
                 findViewById<TextView>(R.id.tvStarted).text = startedStories.size.toString() // Обновляем счётчик начатых
@@ -224,6 +221,18 @@ class ProfileActivity : AppCompatActivity() {
                 // Здесь можно обновить RecyclerView с завершёнными историями, если нужно отдельно их показывать
             }
         }
+
+        // --- НОВОЕ: Наблюдение за непрочтёнными историями ---
+        // Определяем непрочтённые как все истории минус завершённые
+        lifecycleScope.launch {
+            repo.getCompletedStories().collect { completedStories ->
+                val allStoriesCount = StoryRepository.allStories.size
+                val unreadCount = allStoriesCount - completedStories.size
+                findViewById<TextView>(R.id.tvUnread).text = unreadCount.toString() // Обновляем счётчик непрочтённых
+            }
+        }
+        // --- КОНЕЦ НОВОГО ---
+
 
         // UID (можно генерировать или брать из DataStore)
         val uid = "UID-${System.currentTimeMillis().toString().takeLast(6)}"

@@ -47,7 +47,8 @@ class AvatarPreviewAdapter(
 
                 // Уведомляем адаптер о изменениях в старом и новом выбранном элементе
                 notifyItemChanged(avatars.indexOf(previousSelected))
-                notifyItemChanged(adapterPosition) // notifyItemChanged(position) может не сработать, если position != adapterPosition из-за анимаций
+                // --- ИСПРАВЛЕНО: Используем bindingAdapterPosition вместо adapterPosition ---
+                notifyItemChanged(bindingAdapterPosition)
             }
         }
     }
