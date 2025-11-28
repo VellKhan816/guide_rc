@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.my_story_rc.domain.StoryRepository
 import com.example.my_story_rc.model.Story
+import com.example.my_story_rc.model.StoryProgress // Убедитесь, что модель StoryProgress определена
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -51,7 +52,6 @@ class UserPreferencesRepository(context: Context) {
         .map { preferences -> preferences[PreferencesKeys.AVATAR] ?: 0 }
 
     // --- СТАТИСТИКА: теперь вычисляется на основе прогресса ---
-    // Вместо хранения отдельного счётчика, мы можем вычислить его на основе getStartedStories/getCompletedStories
     val statsStarted: Flow<Int> = getStartedStories().map { it.size }
     val statsCompleted: Flow<Int> = getCompletedStories().map { it.size }
 
@@ -68,7 +68,7 @@ class UserPreferencesRepository(context: Context) {
             nick.isNotEmpty() && dobMillis != null && pass.isNotEmpty() // Добавлено условие на пароль
         }
 
-    // --- НОВОЕ: Flow для проверки учётных данных ---
+    // --- Flow для проверки учётных данных ---
     val isCredentialsSet: Flow<Boolean> = dataStore.data
         .map { preferences ->
             val nick = preferences[PreferencesKeys.NICKNAME].orEmpty()
@@ -133,10 +133,16 @@ class UserPreferencesRepository(context: Context) {
         }
     }
 
-    // --- НОВОЕ: Методы для получения списков начатых/завершённых историй ---
-    // Эти методы фильтруют StoryRepository.allStories на основе прогресса, хранящегося в DataStore.
-    // История считается начатой, если lastReadChapter > 0.
-    // История считается завершённой, если isCompleted = true.
+    // --- НОВОЕ: Метод для отметки истории как завершённой ---
+    suspend fun markStoryAsCompleted(storyId: Int) {
+        // Получаем текущий прогресс
+        val currentProgress = getStoryProgress(storyId)
+        // Обновляем прогресс, установив флаг isCompleted
+        updateStoryProgress(currentProgress.copy(isCompleted = true))
+    }
+
+
+    // --- Методы для получения списков начатых/завершённых историй ---
     fun getStartedStories(): Flow<List<Story>> {
         return dataStore.data.map { preferences ->
             StoryRepository.allStories.filter { story ->

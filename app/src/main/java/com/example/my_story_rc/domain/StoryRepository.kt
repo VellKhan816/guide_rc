@@ -1,7 +1,7 @@
 package com.example.my_story_rc.domain
 
 import com.example.my_story_rc.R
-import com.example.my_story_rc.domain.StoryRepository.allStories
+import com.example.my_story_rc.model.Chapter
 import com.example.my_story_rc.model.Story
 
 object StoryRepository {
@@ -26,8 +26,16 @@ object StoryRepository {
                 "Русалка"
             ),
             isCompleted = true,
-            coverResId = R.drawable.sailsinthefog, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.sailsinthefog,
+            chapters = listOf(
+                Chapter(
+                    id = 101,
+                    storyId = 1,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+                )
         ),
         Story(
             id = 2,
@@ -45,8 +53,16 @@ object StoryRepository {
                 "Данте Гуэрра (неполная ветка)"
             ),
             isCompleted = true,
-            coverResId = R.drawable.bornofthemoon, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.bornofthemoon,
+            chapters = listOf(
+                Chapter(
+                    id = 201,
+                    storyId = 2,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 3,
@@ -65,8 +81,18 @@ object StoryRepository {
                 "Крис"
             ),
             isCompleted = true,
-            coverResId = R.drawable.myholiwoodstory, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.myholiwoodstory,
+            chapters = listOf(
+                Chapter(
+                    id = 301,
+                    storyId = 3,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+
+
+                )
         ),
         Story(
             id = 4,
@@ -81,8 +107,17 @@ object StoryRepository {
                 "Эмма де Гиз (неполная ветка)"
             ),
             isCompleted = true,
-            coverResId = R.drawable.theqweenthirtydays, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.theqweenthirtydays, chapters = listOf(
+                Chapter(
+                    id = 401,
+                    storyId = 4,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+
+
+                )
         ),
         Story(
             id = 5,
@@ -101,8 +136,16 @@ object StoryRepository {
                 "Человек в маске (интрижка)"
             ),
             isCompleted = true,
-            coverResId = R.drawable.shadowsofthesentfor, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.shadowsofthesentfor,
+            chapters = listOf(
+                Chapter(
+                    id = 501,
+                    storyId = 5,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 6,
@@ -117,8 +160,16 @@ object StoryRepository {
                 "Шарль (неполная ветка)"
             ),
             isCompleted = true,
-            coverResId = R.drawable.highsurf, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.highsurf,
+            chapters = listOf(
+                Chapter(
+                    id = 601,
+                    storyId = 6,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 7,
@@ -137,8 +188,17 @@ object StoryRepository {
                 "Хиро"
             ),
             isCompleted = true,
-            coverResId = R.drawable.intherhythmofpassion, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            coverResId = R.drawable.intherhythmofpassion,
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 701,
+                    storyId = 7,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 8,
@@ -157,7 +217,16 @@ object StoryRepository {
             ),
             isCompleted = true,
             coverResId = R.drawable.imhuntingyou, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 801,
+                    storyId = 8,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 9,
@@ -175,7 +244,16 @@ object StoryRepository {
             ),
             isCompleted = true,
             coverResId = R.drawable.thesecretofheaven, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 901,
+                    storyId = 9,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 10,
@@ -190,12 +268,20 @@ object StoryRepository {
                 "Сино-Одори"
             ),
             isCompleted = true,
-            coverResId = R.drawable.willowlegend, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.willowlegend,
+            chapters = listOf(
+                Chapter(
+                    id = 1001,
+                    storyId = 10,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 11,
-            title = "Дракула: история любви",
+            title = "Дракула. История любви",
             description = "«Водоворот придворных тайн Османской империи, любовь и ненависть наследных принцев, а ещё — друзья и враги, чей возраст — вечность»\n" +
                     "\n"+
                     "11-я по счёту история в приложении визуальных новелл Клуб Романтики, повествующая в жанрах мистики и драмы под авторством сценаристки Вероники.",
@@ -210,7 +296,432 @@ object StoryRepository {
             ),
             isCompleted = true,
             coverResId = R.drawable.draculaisalovestory, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 1101,
+                    storyId = 11,
+                    number = 1,
+                    title = "Новости из прошлого",
+                    content = "Водоворот придворных тайн Османской империи, любовь и ненависть наследных принцев, а ещё - друзья и враги, чей возраст - вечность...\n\n"
+                ),
+                Chapter(
+                    id = 1102,
+                    storyId = 11,
+                    number = 2,
+                    title = "Новый наследник",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1103,
+                    storyId = 11,
+                    number = 3,
+                    title = "Неожиданный переезд",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1104,
+                    storyId = 11,
+                    number = 4,
+                    title = "Первая ночь в замке",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1105,
+                    storyId = 11,
+                    number = 5,
+                    title = "Преступление",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1106,
+                    storyId = 11,
+                    number = 6,
+                    title = "Друг детства",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1107,
+                    storyId = 11,
+                    number = 7,
+                    title = "Неудобный гость",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1108,
+                    storyId = 11,
+                    number = 8,
+                    title = "Дождь",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1109,
+                    storyId = 11,
+                    number = 9,
+                    title = "Стонущие стены",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1110,
+                    storyId = 11,
+                    number = 10,
+                    title = "Жертва",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1111,
+                    storyId = 11,
+                    number = 11,
+                    title = "Освобождение",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1112,
+                    storyId = 11,
+                    number = 12,
+                    title = "Король",
+                    content = "На этом моменте заканчивается прохождение \"Клуб Романтики: Дракула. История любви\" - 1 сезон. Если данная информация была вам полезна - оставайтесь с нами. Прохождение 2-го сезон \"Дракула. История любви\" Вас ждёт. Приятной игры!"
+                ),
+                // --- Сезон 2 ---
+                Chapter(
+                    id = 1113,
+                    storyId = 11,
+                    number = 13,
+                    title = "Небо. Самолет. Девушка",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1114,
+                    storyId = 11,
+                    number = 14,
+                    title = "Черные фигуры",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1115,
+                    storyId = 11,
+                    number = 15,
+                    title = "Благотворитель",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1116,
+                    storyId = 11,
+                    number = 16,
+                    title = "Наказание",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1117,
+                    storyId = 11,
+                    number = 17,
+                    title = "Соседи",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1118,
+                    storyId = 11,
+                    number = 18,
+                    title = "Новые жильцы",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1119,
+                    storyId = 11,
+                    number = 19,
+                    title = "Возвращение",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1120,
+                    storyId = 11,
+                    number = 20,
+                    title = "Нити судьбы",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1121,
+                    storyId = 11,
+                    number = 21,
+                    title = "Мотив",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1122,
+                    storyId = 11,
+                    number = 22,
+                    title = "Огонь и вода",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1123,
+                    storyId = 11,
+                    number = 23,
+                    title = "Марево",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1124,
+                    storyId = 11,
+                    number = 24,
+                    title = "Нашествие",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1125,
+                    storyId = 11,
+                    number = 25,
+                    title = "Свет и меч",
+                    content = "Подошло к концу прохождение 2-го сезон истории \"Дракула. История любви\". Если вам понравилась представленная информация и вы готовы для продолжения, то оставайтесь с нами. Прохождение 3-го сезон \"Дракула. История любви\" Вас ждёт. Приятной игры!"
+                ),
+                // --- Сезон 3 ---
+                Chapter(
+                    id = 1126,
+                    storyId = 11,
+                    number = 26,
+                    title = "Первая половина",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1127,
+                    storyId = 11,
+                    number = 27,
+                    title = "Время ответов",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1128,
+                    storyId = 11,
+                    number = 28,
+                    title = "Буклет",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1129,
+                    storyId = 11,
+                    number = 29,
+                    title = "Сонная пустошь",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1130,
+                    storyId = 11,
+                    number = 30,
+                    title = "Узник",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1131,
+                    storyId = 11,
+                    number = 31,
+                    title = "Вести от Шотета",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1132,
+                    storyId = 11,
+                    number = 32,
+                    title = "Ритуал Соломона",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1133,
+                    storyId = 11,
+                    number = 33,
+                    title = "Победитель",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1134,
+                    storyId = 11,
+                    number = 34,
+                    title = "Приз",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1135,
+                    storyId = 11,
+                    number = 35,
+                    title = "Огонь и масло",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1136,
+                    storyId = 11,
+                    number = 36,
+                    title = "Личная просьба",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1137,
+                    storyId = 11,
+                    number = 37,
+                    title = "Уловки тьмы",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1138,
+                    storyId = 11,
+                    number = 38,
+                    title = "Возвращение тьмы",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1139,
+                    storyId = 11,
+                    number = 39,
+                    title = "Бальная ночь",
+                    content = "На данном моменте завершается прохождение 3-го сезона истории \"Дракула. История Любви\".Прохождение 4-го сезон \"Дракула. История любви\" Вас ждёт. Приятной игры!"
+                ),
+                // --- Сезон 4 ---
+                Chapter(
+                    id = 1140,
+                    storyId = 11,
+                    number = 40,
+                    title = "Падение и подъем",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1141,
+                    storyId = 11,
+                    number = 41,
+                    title = "Явление на закате",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1142,
+                    storyId = 11,
+                    number = 42,
+                    title = "Турецкий гамбит",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1143,
+                    storyId = 11,
+                    number = 43,
+                    title = "Черное море",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1144,
+                    storyId = 11,
+                    number = 44,
+                    title = "Темное прошлое",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1145,
+                    storyId = 11,
+                    number = 45,
+                    title = "Башня",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1146,
+                    storyId = 11,
+                    number = 46,
+                    title = "Ловушка",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1147,
+                    storyId = 11,
+                    number = 47,
+                    title = "Ночь",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1148,
+                    storyId = 11,
+                    number = 48,
+                    title = "Сладкая игра",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1149,
+                    storyId = 11,
+                    number = 49,
+                    title = "Нежданный ребенок",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1150,
+                    storyId = 11,
+                    number = 50,
+                    title = "Поцелуй",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1151,
+                    storyId = 11,
+                    number = 51,
+                    title = "Жених",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1152,
+                    storyId = 11,
+                    number = 52,
+                    title = "Знакомый незнакомец",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1153,
+                    storyId = 11,
+                    number = 53,
+                    title = "Накануне",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1154,
+                    storyId = 11,
+                    number = 54,
+                    title = "Декабрьская ночь",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1155,
+                    storyId = 11,
+                    number = 55,
+                    title = "Прощание",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1156,
+                    storyId = 11,
+                    number = 56,
+                    title = "Из первых уст",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1157,
+                    storyId = 11,
+                    number = 57,
+                    title = "Последний пункт",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1158,
+                    storyId = 11,
+                    number = 58,
+                    title = "Освобождение",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1159,
+                    storyId = 11,
+                    number = 59,
+                    title = "Закон баланса",
+                    content = ""
+                ),
+                Chapter(
+                    id = 1160,
+                    storyId = 11,
+                    number = 60,
+                    title = "Свет в конце",
+                    content = "На данном этапе заканчивается прохождение истории \"Дракула. История Любви\". Надеемся что данная информация была вам полезна. Приятной игры!"                ),
+
+            )
         ),
         Story(
             id = 12,
@@ -229,8 +740,16 @@ object StoryRepository {
                 "Агент Алекс Вульф"
             ),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.lovefromthestar, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.lovefromthestar,
+            chapters = listOf(
+                Chapter(
+                    id = 1201,
+                    storyId = 12,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 13,
@@ -248,8 +767,16 @@ object StoryRepository {
                 "Лиод"
             ),
             isCompleted = true,
-            coverResId = R.drawable.thewayofthevalkyrie, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.thewayofthevalkyrie,
+            chapters = listOf(
+                Chapter(
+                    id = 1301,
+                    storyId = 13,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 14,
@@ -266,8 +793,16 @@ object StoryRepository {
                 "Тео"
             ),
             isCompleted = true,
-            coverResId = R.drawable.furyofthetitans, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.furyofthetitans,
+            chapters = listOf(
+                Chapter(
+                    id = 1401,
+                    storyId = 14,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 15,
@@ -285,8 +820,16 @@ object StoryRepository {
                 "Хаку (неполная ветка)"
             ),
             isCompleted = true,
-            coverResId = R.drawable.sofiatenwishes, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.sofiatenwishes,
+            chapters = listOf(
+                Chapter(
+                    id = 1501,
+                    storyId = 15,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 16,
@@ -302,8 +845,16 @@ object StoryRepository {
                 "Эбигейл"
             ),
             isCompleted = true,
-            coverResId = R.drawable.sinfullondon, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.sinfullondon,
+            chapters = listOf(
+                Chapter(
+                    id = 1601,
+                    storyId = 16,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 17,
@@ -320,8 +871,16 @@ object StoryRepository {
                 "Леон Макграт\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.onthisice, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.onthisice,
+            chapters = listOf(
+                Chapter(
+                    id = 1701,
+                    storyId = 17,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 18,
@@ -337,8 +896,16 @@ object StoryRepository {
                 "Деймон\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.arcanum, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.arcanum,
+            chapters = listOf(
+                Chapter(
+                    id = 1801,
+                    storyId = 18,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 19,
@@ -356,8 +923,16 @@ object StoryRepository {
                 "Августа Флавий\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.thegladiatorchronicles, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.thegladiatorchronicles,
+            chapters = listOf(
+                Chapter(
+                    id = 1901,
+                    storyId = 19,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 20,
@@ -374,8 +949,16 @@ object StoryRepository {
                 "Принцесса Ванора"
             ),
             isCompleted = true,
-            coverResId = R.drawable.theheartoftrespia, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.theheartoftrespia,
+            chapters = listOf(
+                Chapter(
+                    id = 2001,
+                    storyId = 20,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 21,
@@ -392,7 +975,16 @@ object StoryRepository {
             ),
             isCompleted = true,
             coverResId = R.drawable.kalithecallofdarkness, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 2101,
+                    storyId = 21,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 22,
@@ -417,8 +1009,16 @@ object StoryRepository {
                 "Нинхурсаг"
             ),
             isCompleted = true,
-            coverResId = R.drawable.floweroffiretiamat, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.floweroffiretiamat,
+            chapters = listOf(
+                Chapter(
+                    id = 2201,
+                    storyId = 22,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 23,
@@ -440,8 +1040,16 @@ object StoryRepository {
                 "Мадам Розетта (интрижка)"
             ),
             isCompleted = true,
-            coverResId = R.drawable.theodora, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.theodora,
+            chapters = listOf(
+                Chapter(
+                    id = 2301,
+                    storyId = 23,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 24,
@@ -458,8 +1066,16 @@ object StoryRepository {
                 "Тодд"
             ),
             isCompleted = true,
-            coverResId = R.drawable.throughthestormandthedance, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.throughthestormandthedance,
+            chapters = listOf(
+                Chapter(
+                    id = 2401,
+                    storyId = 24,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 25,
@@ -479,7 +1095,16 @@ object StoryRepository {
             ),
             isCompleted = true,
             coverResId = R.drawable.theideal, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 2501,
+                    storyId = 25,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 26,
@@ -497,8 +1122,16 @@ object StoryRepository {
                 "Фокси\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.psi, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.psi,
+            chapters = listOf(
+                Chapter(
+                    id = 2601,
+                    storyId = 26,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 27,
@@ -518,8 +1151,16 @@ object StoryRepository {
                 "Генриетта Английская\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.conqueringversailles, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.conqueringversailles,
+            chapters = listOf(
+                Chapter(
+                    id = 2701,
+                    storyId = 27,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 28,
@@ -536,8 +1177,16 @@ object StoryRepository {
                 "Джаффар\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.thedesertmaot, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.thedesertmaot,
+            chapters = listOf(
+                Chapter(
+                    id = 2801,
+                    storyId = 28,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 29,
@@ -556,8 +1205,16 @@ object StoryRepository {
                 "Астарот\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.thesecretofheaventwo, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.thesecretofheaventwo,
+            chapters = listOf(
+                Chapter(
+                    id = 2901,
+                    storyId = 29,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 30,
@@ -573,8 +1230,16 @@ object StoryRepository {
                 "Сара Левин"
             ),
             isCompleted = true,
-            coverResId = R.drawable.gameofteg, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.gameofteg,
+            chapters = listOf(
+                Chapter(
+                    id = 3001,
+                    storyId = 30,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 31,
@@ -591,7 +1256,16 @@ object StoryRepository {
             ),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.thesongoftherednile, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 3101,
+                    storyId = 31,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 32,
@@ -609,7 +1283,16 @@ object StoryRepository {
             ),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.imhuntingyoutwo, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 3201,
+                    storyId = 32,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 33,
@@ -630,7 +1313,16 @@ object StoryRepository {
             ),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.loveissinandevil, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 3301,
+                    storyId = 33,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 34,
@@ -648,8 +1340,16 @@ object StoryRepository {
                 "Марко (интрижка)\n"
             ),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.timetrickster, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.timetrickster,
+            chapters = listOf(
+                Chapter(
+                    id = 3401,
+                    storyId = 34,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 35,
@@ -666,7 +1366,16 @@ object StoryRepository {
             ),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.kaliistheflameofsamsara, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 3501,
+                    storyId = 35,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 36,
@@ -686,7 +1395,16 @@ object StoryRepository {
             ),
             isCompleted = true,
             coverResId = R.drawable.thegardenofeden, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 3601,
+                    storyId = 36,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 37,
@@ -705,7 +1423,16 @@ object StoryRepository {
             ),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.soulless, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 3701,
+                    storyId = 37,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 38,
@@ -722,7 +1449,16 @@ object StoryRepository {
             ),
             isCompleted = true,
             coverResId = R.drawable.theidealtomtwo, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 3801,
+                    storyId = 38,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 39,
@@ -739,8 +1475,16 @@ object StoryRepository {
                 "Малек Синнер\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.thebrokenheartofastraea, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.thebrokenheartofastraea,
+            chapters = listOf(
+                Chapter(
+                    id = 3901,
+                    storyId = 39,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 40,
@@ -758,8 +1502,16 @@ object StoryRepository {
                 "Авель (интрижка)\n"
             ),
             isCompleted = true,
-            coverResId = R.drawable.thesecretofheavenbyreal, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.thesecretofheavenbyreal,
+            chapters = listOf(
+                Chapter(
+                    id = 4001,
+                    storyId = 40,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 41,
@@ -776,7 +1528,16 @@ object StoryRepository {
             ),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.thesevenbrothers, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 4101,
+                    storyId = 41,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 42,
@@ -793,7 +1554,16 @@ object StoryRepository {
             ),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.andthedarknesswillconsumeus, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 4201,
+                    storyId = 42,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 43,
@@ -807,8 +1577,16 @@ object StoryRepository {
                 "Веллора эя Эменлия\n"
             ),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.thesagaofthunderstoms, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.thesagaofthunderstoms,
+            chapters = listOf(
+                Chapter(
+                    id = 4301,
+                    storyId = 43,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 44,
@@ -825,8 +1603,16 @@ object StoryRepository {
                 "Абрахам Дарнби\n"
             ),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.theahakespearcipher, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.theahakespearcipher,
+            chapters = listOf(
+                Chapter(
+                    id = 4401,
+                    storyId = 44,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 45,
@@ -837,7 +1623,16 @@ object StoryRepository {
             characters = listOf("\n"+"Неизвестно"),
             isCompleted = true,
             coverResId = R.drawable.bureauofparallelworlds, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 4501,
+                    storyId = 45,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 46,
@@ -852,8 +1647,16 @@ object StoryRepository {
                 "Ясин"
             ),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.themissing, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.themissing,
+            chapters = listOf(
+                Chapter(
+                    id = 4601,
+                    storyId = 46,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 47,
@@ -867,8 +1670,16 @@ object StoryRepository {
                 "Зейн\n",
                 "Адриана"),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.adventnumber3, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.adventnumber3,
+            chapters = listOf(
+                Chapter(
+                    id = 4701,
+                    storyId = 47,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 48,
@@ -883,7 +1694,16 @@ object StoryRepository {
                 "Ли"),
             isCompleted = true,
             coverResId = R.drawable.teamo, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 4801,
+                    storyId = 48,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 49,
@@ -899,8 +1719,16 @@ object StoryRepository {
                 "Доктор Гейл Мендоса\n",
                 "Юджен и Дакота (Вести ветку только с одним из пары НЕВОЗМОЖНО)"),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.codeblue, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.codeblue,
+            chapters = listOf(
+                Chapter(
+                    id = 4901,
+                    storyId = 49,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 50,
@@ -916,8 +1744,16 @@ object StoryRepository {
                 "Пилат\n"
             ),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.whereloveburnsforever, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.whereloveburnsforever,
+            chapters = listOf(
+                Chapter(
+                    id = 5001,
+                    storyId = 50,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 51,
@@ -951,8 +1787,16 @@ object StoryRepository {
                 "Малек / Абаддон"
             ),
             isCompleted = false, // <-- В процессе
-            coverResId = R.drawable.thesecretheavenendofeternity, // Замените на реальный ресурс
-            is18Plus = false
+            coverResId = R.drawable.thesecretheavenendofeternity,
+            chapters = listOf(
+                Chapter(
+                    id = 5101,
+                    storyId = 51,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 52,
@@ -964,7 +1808,16 @@ object StoryRepository {
                 "Герой 2"),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.thecoverismissing, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 5201,
+                    storyId = 52,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         ),
         Story(
             id = 53,
@@ -979,7 +1832,16 @@ object StoryRepository {
             ),
             isCompleted = false, // <-- В процессе
             coverResId = R.drawable.thecoverismissing, // Замените на реальный ресурс
-            is18Plus = true // <-- Предполагаем 18+ по названию
+            is18Plus = true,
+            chapters = listOf(
+                Chapter(
+                    id = 5301,
+                    storyId = 53,
+                    number = 1,
+                    title = "Скоро...",
+                    content = "Скоро..."
+                ),
+            )
         )
     )
 

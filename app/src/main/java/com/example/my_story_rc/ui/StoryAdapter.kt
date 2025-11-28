@@ -33,7 +33,7 @@ class StoryAdapter(
     }
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
-        // Проверяем, что позиция действительна перед привязкой
+        // --- ИСПРАВЛЕНО: Проверяем, что позиция действительна перед привязкой ---
         if (position >= 0 && position < stories.size) {
             holder.bind(stories[position], onStoryClick)
         }
@@ -45,8 +45,8 @@ class StoryAdapter(
 
     class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // --- Обновлены ID для соответствия item_story_grid.xml ---
-        private val cover: ImageView = itemView.findViewById(R.id.storyCoverGrid)
-        private val title: TextView = itemView.findViewById(R.id.storyTitleGrid)
+        private val cover: ImageView = itemView.findViewById(R.id.storyCoverGrid) // <-- Убедитесь, что ID правильный
+        private val title: TextView = itemView.findViewById(R.id.storyTitleGrid) // <-- Убедитесь, что ID правильный
 
         fun bind(story: Story, clickListener: (Story) -> Unit) {
             // Устанавливаем обложку

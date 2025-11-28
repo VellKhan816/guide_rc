@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_gradient_dark_blue_overlay"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_return"
+            app:tint="#FFFFFF"
+            android:contentDescription="Назад" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:text="Выберите ивент"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/darkfifty"
+            android:contentDescription="Фон экрана выбора ивента" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Выберите ивент для уведомления:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="32dp"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnEvent1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Алмазная Лихорадка 72 часа"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_purple_rounded"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnEvent2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Алмазная Лихорадка 48 часов"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_purple_rounded"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnEvent3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Чапитие на 48 часов"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_purple_rounded"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnEvent4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="День Шоппинга 48 часов"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_purple_rounded"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnEvent5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="День Шоппинга 24 часа"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_purple_rounded"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

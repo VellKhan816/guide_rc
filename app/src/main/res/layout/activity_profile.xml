@@ -45,222 +45,222 @@
         android:layout_weight="1"
         android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!-- Секция профиля: аватар, никнейм и кнопка редактирования -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:orientation="vertical">
 
-            <!-- Скруглённая аватарка -->
-            <ImageView
-                android:id="@+id/ivAvatar"
-                android:layout_width="113dp"
-                android:layout_height="124dp"
-                android:background="@drawable/homy_av"
-                android:scaleType="centerCrop"
-                android:src="@drawable/homy_av"
-                android:contentDescription="Аватар" />
-
-            <!-- Контейнер для никнейма и кнопки редактирования -->
+            <!-- Секция профиля: аватар, никнейм и кнопка редактирования -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginStart="16dp">
+                android:gravity="center_vertical">
 
-                <!-- Никнейм -->
-                <TextView
-                    android:id="@+id/tvNickname"
+                <!-- Скруглённая аватарка -->
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="113dp"
+                    android:layout_height="124dp"
+                    android:background="@drawable/homy_av"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/homy_av"
+                    android:contentDescription="Аватар" />
+
+                <!-- Контейнер для никнейма и кнопки редактирования -->
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="16dp">
 
-                <!-- Иконка карандаша для редактирования никнейма -->
-                <ImageView
-                    android:id="@+id/ivEditNickname"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_edit"
-                    android:contentDescription="Изменить никнейм"
-                    app:tint="@android:color/white"/>
+                    <!-- Никнейм -->
+                    <TextView
+                        android:id="@+id/tvNickname"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white" />
+
+                    <!-- Иконка карандаша для редактирования никнейма -->
+                    <ImageView
+                        android:id="@+id/ivEditNickname"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_edit"
+                        android:contentDescription="Изменить никнейм"
+                        app:tint="@android:color/white"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
-
-        <!-- Статистика -->
-        <!-- Надпись "Статистика историй" -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Статистика историй"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white" />
-
-        <!-- Кнопка "Завершённые" (зелёная, на всю ширину) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/stat_green_bg"
-            android:padding="12dp"
-            android:layout_marginTop="8dp">
-
+            <!-- Статистика -->
+            <!-- Надпись "Статистика историй" -->
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Завершённые"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvCompleted"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <!-- Кнопка "Начатые" (оранжевая, на всю ширину) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/stat_orange_bg"
-            android:padding="12dp"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Начатые"
-                android:textColor="#000000"
+                android:layout_marginTop="24dp"
+                android:text="Статистика историй"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
 
+            <!-- Кнопка "Завершённые" (зелёная, на всю ширину) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/stat_green_bg"
+                android:padding="12dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Завершённые"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCompleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Кнопка "Начатые" (оранжевая, на всю ширину) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/stat_orange_bg"
+                android:padding="12dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Начатые"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvStarted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Кнопка "Непрочтённые" (голубая, на всю ширину) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/stat_blue_bg"
+                android:padding="12dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Непрочтённые"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvUnread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- UID -->
             <TextView
-                android:id="@+id/tvStarted"
+                android:id="@+id/tvUID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="24dp"
+                android:text="Игровой UID: ???"
+                android:textSize="14sp"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/tvUIDHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Как найти UID?"
+                android:textColor="#1E88E5"
+                android:layout_marginTop="4dp" />
+
+            <!-- Причина -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tvReason"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Я играю в Клуб Романтики, потому что..."
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white" />
+                <ImageView
+                    android:id="@+id/ivEditReason"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="Редактировать"
+                    app:tint="@android:color/white"/>
+            </LinearLayout>
+
+            <!-- Последние истории -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Недавние истории"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@android:color/white" /> <!-- ИСПРАВЛЕНО: Цвет текста заголовка -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecentStories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
 
-        <!-- Кнопка "Непрочтённые" (голубая, на всю ширину) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/stat_blue_bg"
-            android:padding="12dp"
-            android:layout_marginTop="8dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Непрочтённые"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvUnread"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <!-- UID -->
-    <TextView
-        android:id="@+id/tvUID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Игровой UID: ???"
-        android:textSize="14sp"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:id="@+id/tvUIDHint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Как найти UID?"
-        android:textColor="#1E88E5"
-        android:layout_marginTop="4dp" />
-
-    <!-- Причина -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="24dp"
-        android:gravity="center_vertical">
-        <TextView
-            android:id="@+id/tvReason"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Я играю в Клуб Романтики, потому что..."
-            android:textSize="14sp"
-            android:textColor="@android:color/white" />
-        <ImageView
-            android:id="@+id/ivEditReason"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_edit"
-            android:contentDescription="Редактировать"
-            app:tint="@android:color/white"/>
-    </LinearLayout>
-
-    <!-- Последние истории -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Недавние истории"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="@android:color/white" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRecentStories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
-
-</LinearLayout>
-    <!-- Конец основного контента -->
 
     </ScrollView>
 
-    </LinearLayout>
+</LinearLayout>

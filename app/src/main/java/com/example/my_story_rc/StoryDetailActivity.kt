@@ -61,7 +61,7 @@ class StoryDetailActivity : AppCompatActivity() {
             val statusView = findViewById<TextView>(R.id.storyStatus) // <-- Убедитесь, что ID правильный
             val charactersView = findViewById<TextView>(R.id.storyCharacters) // <-- Убедитесь, что ID правильный
             val readButton = findViewById<Button>(R.id.btnReadStory) // Убедитесь, что ID правильный
-            // ... возможно, другие View ...
+            val backButtonTop = findViewById<ImageView>(R.id.backButton) // <-- ID может быть одинаковым, но убедитесь, что он уникален или используйте другой ID, например, R.id.backButtonTop
 
             // Устанавливаем данные
             cover.setImageResource(story.coverResId)
@@ -75,13 +75,12 @@ class StoryDetailActivity : AppCompatActivity() {
             // Обработка кнопок
             backButton.setOnClickListener { finish() }
             readButton.setOnClickListener {
-                // Здесь можно открыть читалку или начать сюжет
-                Toast.makeText(this@StoryDetailActivity, "Начинаем читать: ${story.title}", Toast.LENGTH_SHORT).show()
-                // Пример запуска другой активности или фрагмента для чтения
-                // val intent = Intent(this, ReadingActivity::class.java).apply {
-                //     putExtra("story_id", story.id)
-                // }
-                // startActivity(intent)
+                // Здесь можно открыть список глав или начать сюжет
+                val intent = Intent(this@StoryDetailActivity, ChapterListActivity::class.java).apply { // Запускаем ChapterListActivity
+                    putExtra("story_id", story.id) // Передаём ID истории
+                }
+                startActivity(intent)
+                // finish() // Не вызываем finish(), чтобы пользователь мог вернуться к деталям истории
             }
             // ... установка слушателей для других кнопок ...
         }

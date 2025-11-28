@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyStoryApplication"
         android:allowBackup="true"
@@ -62,6 +64,26 @@
         <!-- SearchActivity -->
         <activity
             android:name=".SearchActivity"
+            android:exported="false" />
+
+        <!-- ChapterListActivity -->
+        <activity
+            android:name=".ChapterListActivity"
+            android:exported="false" />
+
+        <!-- ReadingActivity -->
+        <activity
+            android:name=".ReadingActivity"
+            android:exported="false" />
+
+        <!-- AdminLoginActivity -->
+        <activity
+            android:name=".ui.AdminLoginActivity"
+            android:exported="false" />
+
+        <!-- SelectEventActivity -->
+        <activity
+            android:name=".ui.SelectEventActivity"
             android:exported="false" />
 
     </application>

@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
 import com.example.my_story_rc.data.UserPreferencesRepository
+import com.example.my_story_rc.ui.AdminLoginActivity // Импортируем AdminLoginActivity
+import com.example.my_story_rc.ui.SelectEventActivity // Импортируем SelectEventActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -25,6 +27,10 @@ class SettingsActivity : AppCompatActivity() {
         val switchDark = findViewById<Switch>(R.id.switchDarkMode)
         val switchNotif = findViewById<Switch>(R.id.switchNotifications)
         val btnAccount = findViewById<Button>(R.id.btnAccountAction)
+        // --- НОВОЕ: Находим кнопки администратора ---
+        val btnAdminLogin = findViewById<Button>(R.id.btnAdminLogin) // Убедитесь, что ID правильный
+        val btnSelectEvent = findViewById<Button>(R.id.btnAccountAction) // Убедитесь, что ID правильный
+
 
         // Загрузка текущих настроек
         lifecycleScope.launch {
@@ -54,6 +60,22 @@ class SettingsActivity : AppCompatActivity() {
                 // Здесь можно интегрировать Firebase или системные уведомления
             }
         }
+
+        // --- НОВОЕ: Обработчик для кнопки входа администратора ---
+        btnAdminLogin.setOnClickListener {
+            // Просто запускаем AdminLoginActivity при нажатии
+            val intent = Intent(this@SettingsActivity, AdminLoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        // --- НОВОЕ: Обработчик для кнопки выбора события (предполагается, что она видна только админу) ---
+        btnSelectEvent.setOnClickListener {
+            // Просто запускаем SelectEventActivity при нажатии
+            // В реальности, SelectEventActivity должна проверять статус администратора
+            val intent = Intent(this@SettingsActivity, SelectEventActivity::class.java)
+            startActivity(intent)
+        }
+
 
         // Кнопка входа/выхода
         btnAccount.setOnClickListener {

@@ -13,7 +13,6 @@ import java.io.Serializable
  * @property isCompleted Флаг завершённости (пройдена ли история).
  * @property coverResId Идентификатор ресурса обложки (R.drawable.xxx).
  * @property is18Plus Флаг возрастного ограничения (true = 18+ контент).
- * @property lastReadChapter Номер последней прочитанной главы (0, если не начата).
  */
 data class Story(
     val id: Int,
@@ -23,5 +22,5 @@ data class Story(
     val isCompleted: Boolean,
     val coverResId: Int,
     val is18Plus: Boolean = false,
-    var lastReadChapter: Int = 0 // <-- НОВОЕ: Поле для отслеживания прогресса
+    val chapters: List<Chapter>
 ) : Serializable
